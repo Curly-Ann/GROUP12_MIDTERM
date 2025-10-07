@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'online_forum',
     'accounts',
+    'threads',
     'rest_framework',
+    'post_interactions',
 
 ]
 
