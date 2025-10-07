@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forum Landing Page</title>
+  <link rel="stylesheet" href="{% static 'styles.css' %}" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/134/134914.png" alt="Forum Logo" />
+      <span>Forum</span>
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'list' %}">List</a></li>
+        <li><a href="{% url 'create' %}">Create</a></li>
+        <li><a href="{% url 'details' %}">Details</a></li>
+      </ul>
+    </nav>
+    <div class="auth-buttons">
+      <button class="login">Login</button>
+      <button class="register">Register</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-box">
+      <div class="icon">👥</div>
+      <h1>Welcome to the Forum!</h1>
+      <p>
+        Join our vibrant community of thinkers, creators, and innovators. Share ideas,
+        ask questions, and connect with like-minded individuals from around the world.
+      </p>
+      <button class="get-started">Get Started →</button>
+      <div class="hero-features">
+        <span>✔ Free to join</span>
+        <span>✔ Active community</span>
+        <span>✔ Expert discussions</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="feature">
+      <div class="feature-icon">💬</div>
+      <h3>Rich Discussions</h3>
+      <p>Engage in meaningful conversations with threading and real-time updates.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🛡️</div>
+      <h3>Safe Environment</h3>
+      <p>Moderated discussions ensure a respectful and constructive community.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🔍</div>
+      <h3>Easy Discovery</h3>
+      <p>Find relevant topics and discussions with powerful search and filtering.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">💬 Forum</div>
+      <p>© 2024 Forum Discussion Board. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

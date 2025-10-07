@@ -1,31 +1,44 @@
-from django.http import JsonResponse
+from django.shortcuts import render, redirect
+from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
-from django.core.exceptions import ValidationError
-import json
 from .services import register_user, authenticate_user
+from django.core.exceptions import ValidationError
+
+def home(request):
+    return render(request, 'accounts/base.html')  # main landing page
 
 @csrf_exempt
 def register_view(request):
     if request.method == 'POST':
         try:
-            data = json.loads(request.body)
+            data = {
+                'username': request.POST.get('username'),
+                'email': request.POST.get('email'),
+                'password': request.POST.get('password'),
+            }
             user = register_user(data)
-            return JsonResponse({"success": True, "message": "User registered successfully", "user": user.username})
+            messages.success(request, f"User {user.username} registered successfully.")
+            return redirect('login')  # or to homepage
         except ValidationError as e:
-            return JsonResponse({"success": False, "error": str(e)})
+            messages.error(request, str(e))
         except Exception as e:
-            return JsonResponse({"success": False, "error": str(e)})
-    return JsonResponse({"success": False, "error": "Invalid request method"})
+            messages.error(request, str(e))
+    return render(request, 'accounts/register.html')
 
 @csrf_exempt
 def login_view(request):
     if request.method == 'POST':
         try:
-            data = json.loads(request.body)
+            data = {
+                'username': request.POST.get('username'),
+                'password': request.POST.get('password'),
+            }
             user = authenticate_user(data)
-            return JsonResponse({"success": True, "message": "Login successful", "user": user.username})
-        except ValidationError as e:
-            return JsonResponse({"success": False, "error": str(e)})
+            if user:
+                messages.success(request, f"Welcome back, {user.username}!")
+                return redirect('home')  # or wherever you want
+            else:
+                messages.error(request, "Invalid credentials.")
         except Exception as e:
-            return JsonResponse({"success": False, "error": str(e)})
-    return JsonResponse({"success": False, "error": "Invalid request method"})
+            messages.error(request, str(e))
+    return render(request, 'accounts/login.html')
