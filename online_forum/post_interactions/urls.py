@@ -6,8 +6,10 @@ router = DefaultRouter()
 router.register(r'posts', PostViewSet, basename='post')
 
 urlpatterns = [
-    path('posts/create/', PostCreateView.as_view(), name='create-post'),
+    # For getting all posts in a thread (custom list endpoint)
     path('threads/<int:thread_id>/posts/', ThreadPostsListView.as_view(), name='thread-posts'),
+    # For liking/disliking a post
     path('posts/<int:post_id>/like/', like_post, name='like-post'),
+    # For all other CRUD operations on posts (handled by viewset)
     path('', include(router.urls)),
 ]
