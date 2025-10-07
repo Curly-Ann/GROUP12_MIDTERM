@@ -11,15 +11,14 @@ class Post(models.Model):
     def __str__(self):
         return f'Post by {self.created_by} in {self.thread}'
 
-# Model for like/dislike functionality on posts
 class PostLike(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='likes')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    is_like = models.BooleanField(default=True)  # True=like, False=dislike
+    is_like = models.BooleanField(default=True)
 
     class Meta:
-        unique_together = ('post', 'user')  # Each user can only like/dislike once per post
+        unique_together = ('post', 'user')
 
     def __str__(self):
         status = "Like" if self.is_like else "Dislike"
-        return f"{status} by {self.user} on Post {self.post.id}"
+        return f'{status} by {self.user} on Post {self.post.id}'
