@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #f6f7f9;
+  color: #1a1a1a;
+}
+
+/* Register Page */
+.login-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  background-color: #f6f7f9;
+}
+
+.login-box {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  padding: 40px 50px;
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+}
+
+.login-box h2 {
+  font-size: 28px;
+  color: #0d0d0d;
+  margin-bottom: 10px;
+}
+
+.login-box p {
+  color: #666;
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  border-color: #fbc02d;
+  outline: none;
+}
+
+.login-btn {
+  width: 100%;
+  background-color: #fbc02d;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 12px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+.login-btn:hover {
+  background-color: #ffca28;
+}
+
+.register-text {
+  margin-top: 20px;
+  color: #555;
+  font-size: 14px;
+}
+
+.register-text a {
+  color: #fbc02d;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+}
+

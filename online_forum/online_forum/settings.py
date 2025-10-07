@@ -38,8 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'online_forum',
-    'accounts'
-    'rest_framework'
+    'accounts',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'accounts.middleware.MyCustomMiddleware',
+    'accounts.middleware.AuthRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'online_forum.urls'
@@ -58,7 +58,9 @@ ROOT_URLCONF = 'online_forum.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / 'templates',  # This will allow Django to find the base.html
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
