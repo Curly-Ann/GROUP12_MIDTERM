@@ -38,7 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'online_forum',
+<<<<<<< HEAD
     'threads',
+=======
+    
+    'rest_framework'
+>>>>>>> ea547d6a0e1990f164915707e533ba254d489d99
 ]
 
 MIDDLEWARE = [
@@ -49,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'accounts.middleware.MyCustomMiddleware',
 ]
 
 ROOT_URLCONF = 'online_forum.urls'
