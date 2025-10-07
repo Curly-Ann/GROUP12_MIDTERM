@@ -39,7 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'online_forum',
     'accounts',
+<<<<<<< HEAD
     'rest_framework',
+=======
+    'threads',
+    'rest_framework',
+    'post_interactions',
+
+>>>>>>> 1c9b84c6a54b14217d61211b03bf83134bf3468d
 ]
 
 MIDDLEWARE = [
